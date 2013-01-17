@@ -1,6 +1,13 @@
 General is designed to do one thing:
 run applications on AWS.
 
+**Note** This project is part of [binary-fusion](https://github.com/jacobgroundwater/binary-fusion)
+and aspects from that project may leak into this one.
+
+- general _may_ become the application container for BF
+- node.js core is focused on performance,
+and `libuv` makes coordinating multiple subprocesses extremely easy
+
 ## Overview
 
 - upstart runs general
