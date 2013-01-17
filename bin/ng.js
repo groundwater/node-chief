@@ -3,7 +3,7 @@
 var commander = require('commander');
 var colors    = require('colors');
 
-var general   = require('./index');
+var general   = require('../lib/index');
 
 commander
 .option('-P, --procfile <FILE>', 'Load Processes from FILE', 'Procfile')
