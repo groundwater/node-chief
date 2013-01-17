@@ -22,7 +22,7 @@ and `libuv` makes coordinating multiple subprocesses extremely easy
 
 ## Details
 
-- an upstart script is provided under `share/upstart.conf`
+- an upstart script is provided under `${GENERAL_HOME}/share/upstart.conf`
     - this should be installed on your EC2 image at
     `/etc/init/general.conf`
     - the script _should_ auto-start
