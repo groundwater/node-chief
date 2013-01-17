@@ -14,6 +14,12 @@ and `libuv` makes coordinating multiple subprocesses extremely easy
 - general runs the application
 - environment variables are loaded in via EC2 `user-data`
 
+## Goals
+
+- polyglot `Procfile` application server
+- obtain environment dynamically
+- produce individual log files
+
 ## Details
 
 - an upstart script is provided under `share/upstart.conf`
@@ -27,3 +33,4 @@ and `libuv` makes coordinating multiple subprocesses extremely easy
 ## Todo
 
 - configure upstart script
+- support scaling processes, i.e. `web=2,api=2`
