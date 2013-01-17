@@ -1,6 +1,6 @@
 {
   "name": "general",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Polyglot Server Application Running",
   "main": "index.js",
   "bin": {
