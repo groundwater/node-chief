@@ -34,3 +34,7 @@ and `libuv` makes coordinating multiple subprocesses extremely easy
 
 - configure upstart script
 - support scaling processes, i.e. `web=2,api=2`
+- RESTful interface
+  - control process scaling
+  - get/set environment
+
