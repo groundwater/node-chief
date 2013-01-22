@@ -1,40 +1,49 @@
-Chief is designed to do one thing:
-run applications on AWS.
+# Introduction
 
-**Note** This project is part of [binary-fusion](https://github.com/jacobgroundwater/binary-fusion)
-and aspects from that project may leak into this one.
+Chief is an **Application Container** for use with Amazon Web Service Auto-Scaling Groups.
 
-- chief _may_ become the application container for BF
-- node.js core is focused on performance,
-and `libuv` makes coordinating multiple subprocesses extremely easy
+# About
 
-## Overview
+An _application container_ provides the following:
 
-- upstart runs chief
-- chief runs the application
-- environment variables are loaded in via EC2 `user-data`
+1. setup environment variables
+2. start a set of processes based on a `Procfile`
 
-## Goals
+## AWS Auto-Scaling Groups
 
-- polyglot `Procfile` application server
-- obtain environment dynamically
-- produce individual log files
+A auto-scaling groups are great.
+Chief helps make them even better.
 
-## Details
+### Installation
 
-- an upstart script is provided under `${GENERAL_HOME}/share/upstart.conf`
-    - this should be installed on your EC2 image at
-    `/etc/init/chief.conf`
-    - the script _should_ auto-start
-- the application _must_ be deployed at
-`/home/ubuntu/bundle` and Procfile at
-`/home/ubuntu/bundle/Procfile`
+1. Install Chief — `npm install -g chief`
+2. Export an Upstart Job — `sudo chief upstart -o /etc/init/chief.conf`
+3. Install an **Application Bundle** to `/home/ubuntu/bundle/master`
 
-## Todo
+Chief reads the environment configuration from the AWS [user-data property][1], and passes it to your application.
 
-- configure upstart script
-- support scaling processes, i.e. `web=2,api=2`
-- RESTful interface
-  - control process scaling
-  - get/set environment
+[1]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html
+
+## Application Bundles
+
+Chief can run any kind of application, not just Node.js.
+Chief runs Procfile application; the root of your bundle must contain a `Profile` like the following:
+
+    web: node server.js
+    log: node logger.js
+
+## Production
+
+Chief is designed to work in production.
+Each process in your Procfile is started independently, and will be restarted if it crashes.
+
+- application logs are kept at `/var/log/chief/<proc-key>.log`
+- start using upstart — `sudo start chief`
+- stop using upstart — `sudo stop chief`
+
+# Todos
+
+- configure upstart script via command line
+- support process scaling i.e. `web=2,log=1`
+- add log aggregation
 
