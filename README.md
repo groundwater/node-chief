@@ -1,4 +1,4 @@
-General is designed to do one thing:
+Chief is designed to do one thing:
 run applications on AWS.
 
 **Note** This project is part of [binary-fusion](https://github.com/jacobgroundwater/binary-fusion)
