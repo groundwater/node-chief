@@ -31,11 +31,5 @@ commander
 commander.parse(process.argv);
 
 if(commander.args.length==0) {
-    console.log("          ☆    ☆    ☆    ☆                ".grey)
-    console.log("    __   ___       ___  __                ".grey)
-    console.log("   / _` |__  |\\ | |__  |__)  /\\  |      ".grey)
-    console.log("   \\__> |___ | \\| |___ |  \\ /--\\ |___ ".grey)
-    console.log()
-    console.log("          ☆    ☆    ☆    ☆                ".grey)
     commander.help();
 }
