@@ -1,10 +1,10 @@
 {
-  "name": "general",
+  "name": "chief",
   "version": "0.0.3",
   "description": "Polyglot Server Application Running",
   "main": "index.js",
   "bin": {
-    "ng": "bin/ng.js"
+    "chief": "bin/chief.js"
   },
   "dependencies": {
     "colors": "~0.6.0-1",

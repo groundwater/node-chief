@@ -6,7 +6,7 @@ var path      = require('path');
 var commander = require('commander');
 var colors    = require('colors');
 
-var general   = require('../lib/index');
+var chief     = require('../lib/index');
 
 commander
 .option('-P, --procfile <FILE>', 'Load Processes from FILE', 'Procfile')
@@ -17,7 +17,7 @@ commander
 .command('start')
 .description('Run a Procfile')
 .action(function(command){
-    general.attack(commander);
+    chief.attack(commander);
 })
 
 commander
